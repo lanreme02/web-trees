@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style> 
+    body{
+        width:90%;
+        background-color:khaki;
+    }
+    #header{
+        position:fixed; top:0%;
+        width:100%;
+        height:10%;
+        text-align: center;
+        vertical-align:text-top;
+        background-color:greenyellow;
+        z-index: 10;
+        padding:0%;
+        margin:0%;
+    }
+    #left{
+        position:fixed;
+        top:10%;
+        left:0%;
+        width:20%;
+        height:100%;
+        background-color: blueviolet;
+        border-width:1em; border-color:  blue; border-style: dotted;
+    }
+
+    #container{
+        position:absolute; 
+        left:28%;
+        top:10%;
+        width:40%;
+        
+        
+    }
+
+    .item{
+        background-color :brown;
+        margin-top: 0.2em;
+        padding:0.2em;
+
+    }
+
+    li{
+        list-style: none;
+        display:block;
+    }
+    #extradisplay{
+        position:fixed; 
+        right:0;
+        top:10%;
+        height:100%;
+        overflow:scroll;
+        width:25%;
+
+    }
+
+   
+    </style>
+</head>
+
+<body>
+
+<script>
+
+    var dataArray = [];
+$( document ).ready(function() {
+   
+
+$.ajax({
+    url: "https://data.cityofnewyork.us/resource/nwxe-4ae8.json",
+    type: "GET",
+    data: {
+      "$limit" : 50,
+      "$$app_token" : "GzhdobtDfIvbeUcZCvG5t35nT"
+    }
+}).done(function(data) {
+    dataArray = data;
+  for(var k = 0; k < data.length; k++){
+      var o = data[k];
+    var c = "<div class='item'> <ul> <li>" +"Adress :"+ o.address+ "</li>" 
+        +"<li> Specie Name :"+ o.spc_common+ "</li>"
+        + "<li> Borough Name :"+ o.boroname+ "</li>" + "</ul>"
+        
+        +"<input type='button' value='See More' onclick='display("+k+")'></input>   </div>";
+        $("#container").append(c);
+
+  }
+  display(0);
+});
+
+});
+
+function display(i){
+    $("#extradisplay").empty();
+    var obj= dataArray[i];
+    var c = "<div class='buy'> <ul>";
+    for(o in obj)
+    c += "<li>"+ o +" :" + obj[o] +"</li>";
+        
+        c += "</ul></div>";
+        $("#extradisplay").append(c);
+
+}
+
+
+</script>
+<div id="header">
+        <h1>Sponsor a New York Tree</h1>
+    </div>
+
+<div id="left">
+
+    </div>
+<div id="container">
+
+</div>
+<div id="extradisplay">
+
+    </div>
+   
+</body>
+</html>
