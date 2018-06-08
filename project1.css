@@ -13,7 +13,8 @@
     }
     span{position:relative; left:40%; font-size: 30px; color:hsl(0,100%,50%);display:inline-block}
     span:hover{background-color: black}
-     button:hover{background-color:hsl(220,80%,60%);color:hsl(65,100%,70%);}
+     .hover{background-color:hsl(220,80%,60%);color:hsl(65,100%,70%);}
+`    .button{background-color:hsl(20,0%,60%);color:hsl(65,100%,100%);}
     img{ width:80%; margin: 0 auto; display:block}
     #header{
         position:fixed; top:0%;left:0%;
