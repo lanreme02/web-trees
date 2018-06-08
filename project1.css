@@ -13,7 +13,7 @@
     }
     span{position:relative; left:40%; font-size: 30px; color:hsl(0,100%,50%);display:inline-block}
     span:hover{background-color: black}
-    button:hover{background-color:hsl(50;0%,20%);color:hsl(50;0%,0%);}
+    button:hover{background-color:hsl(50,0%,20%);color:hsl(50,0%,0%);}
     img{ width:80%; margin: 0 auto; display:block}
     #header{
         position:fixed; top:0%;left:0%;
